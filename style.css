@@ -94,6 +94,15 @@ form .form-inp-field {
     min-width: 200px;
 }
 
+.form .select {
+    width: auto;
+    margin: 10px;
+}
+
+.radio {
+    margin: 0px -25px;
+}
+
 .form #submit {
     width: 130px;
     margin: auto;
