@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://github.com/Jovit-Mathew236/My-Personal-Web/blob/main/Logo2.png?raw=true" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>WORKSHOP SEMINAR EXIHIBITION | ASTHRA</title>
+</head>
+
+<body>
+    <div class='star'>
+        <div class='head-box'>
+            <div class='head'>
+                <h1>WORKSHOP, SEMINAR AND EXHIBITION : INTRODUCTION TO RASPBERRY PI
+                    & INTERFACING OF VARIOUS SENSORS WITH IT.
+                </h1>
+                <p>
+                    A workshop on any of the core instrumentation topics ( PLC, DCS, Robotics and
+                    Automation etc..)will be taken by an experienced resource person in the
+                    respective domain. The duration of the workshop will be a maximum of 2 hours.
+                    Through the workshop we are aiming to give an overall idea to the listeners
+                    about the topic. After the workshop there will be a seminar presentation by the
+                    students of S6 Electronics & Instrumentation on various topics which are closely
+                    related with instrumentation engineering. The seminar presentation will be of
+                    maximum 1 hour. After the seminar there will be an exhibition, where we are
+                    planning to exhibit various instruments, control valves, various sensors and
+                    transducers etc. For the participants who registered for the workshop, the
+                    seminar and workshop will be free.
+
+
+                    <br> <br>
+                    <b> Registration fees for each participant : Rs. 150</b>
+                </p>
+            </div>
+        </div>
+        <div class='form'>
+            <div>
+                <form name="google-sheet" method="post" autocomplete="off">
+                    <div class='form-inp-field'>
+                        <div class='form-field'>
+
+                            <label>Name</label><br><br>
+                            <input type="text" name="Name" placeholder='Name' required><br><br>
+                            <label>Phone</label><br><br>
+                            <input type="number"
+                                onchange="if (this.value.length != (10 || 12)) swal('Info!', 'The typed phone number is Wrong 😯', 'info') "
+                                name="Phone" placeholder='Phone Number' required><br>
+                        </div>
+                        <div class='form-field'>
+                            <label>Email</label><br><br>
+                            <input type="email" name="Email" placeholder='yourname@gamil.com' required><br><br>
+                            <label>Department</label><br><br>
+                            <input type="text" name="Deapartment" placeholder='Department' required><br> <br>
+                            <label>College</label><br><br>
+                            <input type="text" name="College" placeholder='College name' required><br>
+                        </div>
+                    </div>
+
+                    <input type="submit" value="submit" id="submit">
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwiBWD8twt6261qwnqbmCM9A2azQ9qKbR30AtmQ2qsl7vLCNZ2tDUpbdi1eAsRsfembrQ/exec'
+        const form = document.forms['google-sheet']
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => swal("Good job!", "You have successfully submitted !", "success").then(() => location.reload()))
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+</body>
+
+</html>

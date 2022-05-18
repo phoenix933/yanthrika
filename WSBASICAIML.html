@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://github.com/Jovit-Mathew236/My-Personal-Web/blob/main/Logo2.png?raw=true" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>WORKSHOP: BASICS (GTECH MULEARN) | ASTHRA</title>
+</head>
+
+<body>
+    <div class='star'>
+        <div class='head-box'>
+            <div class='head'>
+                <h1>WORKSHOP: BASICS OF AI / ML / DL & HANDS-ON (GTECH MULEARN)/h1>
+                    <p>
+                        A comrade from Gtech MuLearn will be taking an intro class based on AI, ML, or
+                        DL. The workshop will also have a hands-on session on the topic. The
+                        participants should bring their own laptops.
+
+
+                        <br> <br>
+                        <b> ● Entry fee: ₹150 (Individual) <br>
+                            ● Spot & Online Registration</b>
+                    </p>
+            </div>
+        </div>
+        <div class='form'>
+            <div>
+                <form name="google-sheet" method="post" autocomplete="off">
+                    <div class='form-inp-field'>
+                        <div class='form-field'>
+
+                            <label>Name</label><br><br>
+                            <input type="text" name="Name" placeholder='Name' required><br><br>
+                            <label>Phone</label><br><br>
+                            <input type="number"
+                                onchange="if (this.value.length != (10 || 12)) swal('Info!', 'The typed phone number is Wrong 😯', 'info') "
+                                name="Phone" placeholder='Phone Number' required><br>
+                        </div>
+                        <div class='form-field'>
+                            <label>Email</label><br><br>
+                            <input type="email" name="Email" placeholder='yourname@gamil.com' required><br><br>
+                            <label>Department</label><br><br>
+                            <input type="text" name="Deapartment" placeholder='Department' required><br> <br>
+                            <label>College</label><br><br>
+                            <input type="text" name="College" placeholder='College name' required><br>
+                        </div>
+                    </div>
+
+                    <input type="submit" value="submit" id="submit">
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzP_Twf9bNJVxAvcwmInU1RRuXDquDuYBL-HsnvgBUEbucXdC6g-TsCLoNkbUNIPpoFEw/exec'
+        const form = document.forms['google-sheet']
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => swal("Good job!", "You have successfully submitted !", "success").then(() => location.reload()))
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+</body>
+
+</html>
