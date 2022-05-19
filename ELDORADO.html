@@ -10,6 +10,18 @@
     <link rel="stylesheet" href="style.css">
     <title>EL DORADO | ASTHRA</title>
 </head>
+<style>
+    #link {
+        display: none;
+        margin: 13px 39px;
+        text-align: center;
+
+    }
+
+    #add-team {
+        display: none;
+    }
+</style>
 
 <body>
     <div class='star'>
@@ -18,10 +30,10 @@
                 <h1>EL DORADO: XPAND REALITY (AR TREASURE HUNT)</h1>
                 <p>
                     A map of the college and a game card will be given to each participant, in
-which details of the places and clues will be given. Each clue will lead to a
-place, each place will have a QR code. The QRs will have a hint on it, which
-leads to the next place. The Final place will determine the winners (1st and.
-2nd position only).
+                    which details of the places and clues will be given. Each clue will lead to a
+                    place, each place will have a QR code. The QRs will have a hint on it, which
+                    leads to the next place. The Final place will determine the winners (1st and.
+                    2nd position only).
 
 
                     <br> <br>
@@ -30,36 +42,99 @@ leads to the next place. The Final place will determine the winners (1st and.
                 </p>
             </div>
         </div>
-        <div class='form'>
+        <div class='form' style="display: flex;
+        flex-direction: column;
+        ">
             <div>
                 <form name="google-sheet" method="post" autocomplete="off">
                     <div class='form-inp-field'>
                         <div class='form-field'>
+                            <label for="">No of Participents</label>
+                            <div class="radio">
+                                <input class="select" type="radio" id="1" name="noofparticipents" value="1" required>
+                                <label for="html">1</label><br>
+                                <input class="select" type="radio" id="2" name="noofparticipents" value="2" onkeypress="getVal()">
+                                <label for="css">2</label><br>
 
+                            </div>
+                            <label for=""><b>Member 1</b> </label> <br> <br>
                             <label>Name</label><br><br>
-                            <input type="text" name="Name" placeholder='Name' required><br><br>
-                            <label>Phone</label><br><br>
+                            <input type="text" name="memb1 Name" id="name" placeholder='Name' required><br><br>
+                            <label>Phone (Whatsapp Number)</label><br><br>
                             <input type="number"
                                 onchange="if (this.value.length != (10 || 12)) swal('Info!', 'The typed phone number is Wrong 😯', 'info') "
-                                name="Phone" placeholder='Phone Number' required><br>
+                                name="memb1 Phone" placeholder='Phone Number' onkeypress="getVal()" id="phone"
+                                required><br>
                         </div>
                         <div class='form-field'>
                             <label>Email</label><br><br>
-                            <input type="email" name="Email" placeholder='yourname@gamil.com' required><br><br>
-                            <label>Department</label><br><br>
-                            <input type="text" name="Department" placeholder='Department' required><br> <br>
+                            <input type="email" name="memb1 Email" id="email" placeholder='yourname@gamil.com'
+                                required><br><br>
                             <label>College</label><br><br>
-                            <input type="text" name="College" placeholder='College name' required><br>
-                        </div>
+                            <input type="text" name="memb1 College" id="college" placeholder='College name'
+                                required><br>
+                        </div> <br><br>
+                        <label for=""><b>Member 2</b> </label> <br> <br>
+                        <label>Name</label><br><br>
+                        <input type="text" name="memb2 Name" placeholder='Name'><br><br>
+                        <label>Phone (Whatsapp Number)</label><br><br>
+                        <input type="number"
+                            onchange="if (this.value.length != (10 || 12)) swal('Info!', 'The typed phone number is Wrong 😯', 'info') "
+                            name="memb2 Phone" placeholder='Phone Number'><br>
                     </div>
-
-                    <input type="submit" value="submit" id="submit">
-                </form>
-
+                    <div class='form-field'>
+                        <label>Email</label><br><br>
+                        <input type="email" name="memb2 Email" placeholder='yourname@gamil.com'><br><br>
+                        <label>College</label><br><br>
+                        <input type="text" name="memb2 College" placeholder='College name'><br>
+                    </div>
             </div>
+
+            <input type="submit" value="submit" id="submit" style="margin-bottom:20px">
+
+
+            <p id="link"><b> Join the Whatsapp group </b><span id="add-team">and add your team member</span> <br><a
+                    href="https://chat.whatsapp.com/GXo669VtoXQBp4QMAGJWuq">https://chat.whatsapp.com/GXo669VtoXQBp4QMAGJWuq</a>
+            </p>
+            </form>
+
         </div>
     </div>
+    </div>
+
     <script type="text/javascript">
+        // const link = document.getElementById('link').style.display
+        // const inpname = document.getElementById('name').value;
+        // const inpphone = document.getElementById('phone').value;
+        // const inpemail = document.getElementById('email').value;
+        // const inpcollege = document.getElementById('college').value;
+        //    if( inpname != "" ){
+        //        if(inpphone != "" ){
+        //            if(inpemail != "" ){
+        //                if(inpcollege != "" ){
+        //                    link = 'block'
+        //                }
+        //            }
+        //        }
+        //    }
+        function getVal() {
+            const val = document.querySelector('input').value;
+            // const val2 = document.querySelector('input').value;
+            console.log(val);
+            if (val.length != "") {
+                document.getElementById('link').style.display = 'block'
+            }
+        }
+        function getVal2() {
+            const val = document.querySelector('input').value;
+            // const val2 = document.querySelector('input').value;
+            console.log(val);
+            
+                document.getElementById('add-team').style.display = 'block'
+            
+        }
+
+
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxybueWfLMgJstJjKAz_qPYUMKRJkzH_ZQ0aC4A8eolIlL5dG6735pcnbOxdznYHqZj/exec'
         const form = document.forms['google-sheet']
         form.addEventListener('submit', e => {
